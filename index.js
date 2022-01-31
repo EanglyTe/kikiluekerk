@@ -40,8 +40,8 @@ const client = new Discord.Client({
     ],
     presence: {
       activity: {
-        name: `+help | musicium.eu`, 
-        type: "PLAYING", 
+        name: `{prefix}help | Pleng | {serveruser}`, 
+        type: "LISTINGS", 
       },
       status: "online"
     }
@@ -108,7 +108,7 @@ client.infos = new Enmap({ name: "infos", dataDir: "./databases/infos"});
 client.autoresume = new Enmap({ name: "autoresume", dataDir: "./databases/infos"});
 
 //Require the Handlers                  Add the antiCrash file too, if its enabled
-["events", "commands", "slashCommands", settings.antiCrash ? "antiCrash" : null, "distubeEvent"]
+["events", "commands", settings.antiCrash ? "antiCrash" : null, "distubeEvent"]
     .filter(Boolean)
     .forEach(h => {
         require(`./handlers/${h}`)(client);
